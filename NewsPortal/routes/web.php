@@ -25,3 +25,4 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('articles', ArticlesController::class);
+Route::post('articles/store', [ArticlesController::class,'store']);
