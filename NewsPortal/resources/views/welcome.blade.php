@@ -17,9 +17,12 @@
     <div class="grid grid-cols-2 w-4/5 gap-2 gap-y-6 m-auto">
         @foreach($articles as $article)
             <div class="shadow-xl px-8 py-3 rounded-sm">
-                <a class="hover:text-blue-700" href="/articles/{{$article->id}}">
-                    <h1 class="text-3xl font-serif capitalize mb-2">{{$article->title}}</h1>
-                </a>
+                <div class="flex justify-between items-center">
+                    <a class="hover:text-blue-700" href="/articles/{{$article->id}}">
+                        <h1 class="text-3xl font-serif capitalize mb-2">{{$article->title}}</h1>
+                    </a>
+                    <h4 class="text-sm">{{ \Illuminate\Support\Str::limit($article->created_at, 10, $end='') }}</h4>
+                </div>
                 <h4 class="uppercase font-medium text-xs">{{$article->category->name}} | {{$article->user->name}}</h4>
             </div>
         @endforeach
