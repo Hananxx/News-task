@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,9 +15,12 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
     public function index()
     {
-        //return Article::all();
         return view("articles.index")->with('articles',Article::all());
     }
 
@@ -74,7 +78,7 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('articles.edit')->with('article',Article::find($id))->with('categories', Category::all());
     }
 
     /**
@@ -86,7 +90,17 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title'=> 'required',
+            'category'=> 'required',
+            'content'=> 'required'
+        ]);
+        $article = Article::find($id);
+        $article->title = $request->input('title');
+        $article->content = $request->input('content');
+        $article->category_id = $request->input('category');
+        $article->save();
+        return redirect('/')->with('success','Article updated');
     }
 
     /**
@@ -97,6 +111,7 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Article::find($id)->delete();
+        return redirect('/')->with('success','Article removed');
     }
 }

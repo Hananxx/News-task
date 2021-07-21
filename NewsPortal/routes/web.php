@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
+use \App\Models\Article;
+use \App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->with('articles', Article::latest()->paginate(10))
+        ->with('categories', Category::all());
 });
 
 Route::get('/dashboard', function () {
