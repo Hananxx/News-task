@@ -21,6 +21,10 @@ Route::get('/', function () {
         ->with('categories', Category::all());
 });
 
+Route::get('/dashboard/articles', function (){
+    return view('dashboard-articles')->with('articles', Article::all());
+})->middleware(['auth']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

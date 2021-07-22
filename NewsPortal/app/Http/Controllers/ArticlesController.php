@@ -45,18 +45,21 @@ class ArticlesController extends Controller
         $this->validate($request, [
             'title'=> 'required',
             'category'=> 'required',
+            'author'=> 'required',
             'content'=> 'required'
         ]);
-        //create a category
-
-        //$id = Auth::id();
         $article = new Article;
         $article->title = $request->input('title');
         $article->content = $request->input('content');
+        $article->author_name = $request->input('author');
+        $article->cover_img = $request->input('cover_img');
         $article->category_id = $request->input('category');
-        $article->user_id = 1;
+        $article->user_id = Auth::id();
+        if(!$request->input('cover_img')){
+            $article->cover_img = 'https://i.ibb.co/PQcZ3sm/Screen-Shot-1442-12-12-at-2-34-01-PM.png';
+        }
         $article->save();
-        return redirect('/')->with('success','Article created');
+        return redirect('/dashboard')->with('success','Article created');
     }
 
     /**
@@ -93,14 +96,21 @@ class ArticlesController extends Controller
         $this->validate($request, [
             'title'=> 'required',
             'category'=> 'required',
+            'author'=> 'required',
             'content'=> 'required'
         ]);
+
         $article = Article::find($id);
         $article->title = $request->input('title');
         $article->content = $request->input('content');
+        $article->author_name = $request->input('author');
+        $article->cover_img = $request->input('cover_img');
         $article->category_id = $request->input('category');
+        if(!$request->input('cover_img')){
+        $article->cover_img = 'https://i.ibb.co/PQcZ3sm/Screen-Shot-1442-12-12-at-2-34-01-PM.png';
+        }
         $article->save();
-        return redirect('/')->with('success','Article updated');
+        return redirect('/dashboard')->with('success','Article updated');
     }
 
     /**
