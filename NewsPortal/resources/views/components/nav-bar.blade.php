@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center w-screen px-4 py-2 border-b border-gray-200 uppercase font-bold text-xs">
+<div class="bg-white fixed flex justify-between items-center w-screen px-4 py-2 border-b border-gray-200 uppercase font-bold text-xs">
     <div class="flex">
         <svg width="180" height="34" viewBox="0 0 307 54" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.12 5H160L148.881 54H0L15.12 5Z" fill="black"/>

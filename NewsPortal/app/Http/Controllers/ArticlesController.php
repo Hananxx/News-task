@@ -21,7 +21,12 @@ class ArticlesController extends Controller
     }
     public function index()
     {
-        return view("articles.index")->with('articles',Article::all());
+        $articles = Article::all();
+        if(request('search')){
+            $articles = Article::where('title', 'LIKE', '%'.\request('search').'%')
+                ->orWhere('content', 'like','%'.request('search').'%') ->get();
+        }
+        return view("articles.index")->with('articles', $articles)->with('categories', Category::all());
     }
 
     /**

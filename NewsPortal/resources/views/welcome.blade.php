@@ -1,5 +1,4 @@
 <x-app-layout>
-
 <section class="mb-24">
     <div class="flex justify-center items-center py-11">
         <h1 class="font-black text-2xl">Latest News</h1>
@@ -24,7 +23,7 @@
         <h1 class="font-black text-2xl mx-6 text-center">Featured <br/> Categories</h1>
     @foreach($categories as $category)
             <div class="shadow-xl px-4 rounded-md mx-8 flex justify-center items-center">
-                <a class="hover:text-blue-700" href="#">
+                <a class="hover:text-blue-600 transition duration-200 ease-linear" href="#">
                     <h1 class="text-xl font-serif capitalize">{{$category->name}}</h1>
                 </a>
             </div>
