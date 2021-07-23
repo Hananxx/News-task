@@ -14,9 +14,8 @@
 {{--        <script src="{{ asset('js/app.js') }}" defer></script>--}}
     </head>
     <body class="font-sans ">
-    @if (Route::getFacadeRoot()->current()->uri() != 'dashboard')
         @include('components.nav-bar')
-    @endif
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}

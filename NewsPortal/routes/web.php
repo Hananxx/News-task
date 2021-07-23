@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\ContactController;
+use App\Models\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 use \App\Models\Article;
@@ -43,5 +44,8 @@ Route::get('contact/create', function(){
 });
 Route::post('contact/store', [ContactController::class,'store']);
 Route::get('contact/', function(){
-    return \App\Models\Message::all();
-})->middleware(['auth']);
+    return Message::all();
+});
+Route::get('about/', function(){
+    return view('about');
+});
