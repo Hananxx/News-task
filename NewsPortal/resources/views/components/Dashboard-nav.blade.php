@@ -1,8 +1,4 @@
 <div class="rounded-xl shadow-xl h-screen ml-2 w-32 flex flex-col ">
-    <div class="my-4 mt-6 py-2 text-center">
-        <h1 class="text-xl font-bold">Admin</h1>
-        <h5 class="text-gray-500">email@hi.com</h5>
-    </div>
     <div class="my-4 text-center">
         <h3 class="font-bold text-lg flex items-center justify-center border-b border-gray-200 py-2 mb-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">

@@ -1,4 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
+.three-cols-temp{
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+}

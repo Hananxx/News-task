@@ -1,13 +1,14 @@
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <x-app-layout>
-    <div class="flex">
+    <div class="flex pt-12">
     <section>
         @include('components.Dashboard-nav')
     </section>
-<section class="p-8 rounded-xl shadow-xl m-auto h-screen">
+<section class="p-9 m-auto h-screen">
     <h1 class="text-3xl font-bold mb-4">Create an Article</h1>
-    <div class="flex justify-between lg:flex-row flex-col">
-        <div class="mr-4 pr-4 border-r">
-            {!! Form::open(['action'=>'App\Http\Controllers\ArticlesController@store']) !!}
+    <div class="grid md:grid-cols-3">
+        <div class="mr-4 pr-4 border-r col-span-2">
+            {!! Form::open(['action'=>'App\Http\Controllers\ArticlesController@store','id'=>'form']) !!}
             <div>
                 {{Form::label('title', 'Title:')}}
                 {{Form::text('title','',['placeholder'=>'', 'class'=>'appearance-none w-32 bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-8 px-2'])}}
@@ -17,16 +18,20 @@
 
             <div>
                 {{Form::label('content', 'Content:')}}
-                {{Form::textarea('content','',['placeholder'=>'', 'id'=>'editor'])}}
+                {{Form::textarea('content','',['placeholder'=>'', 'class'=>'hidden', 'id'=>'textarea'])}}
+                <div id="editor-container" class="h-72">
+                </div>
             </div>
         </div>
         <div>
             @include('components.form-submission-msgs')
             <h3 class="font-bold">Category:</h3>
             @foreach($categories as $category)
-                {{Form::radio('category', $category->id)}}
-                {{Form::label('category', $category->name)}}
-            @endforeach
+                <div class="m-1 inline-block hover:text-blue-600 transition duration-200 ease-in-out">
+                    {{Form::radio('category', $category->id)}}
+                    {{Form::label('category', $category->name)}}
+                </div>
+                @endforeach
             <div class="my-4">
                 {{Form::label('cover_img', 'Cover Image URL:')}}
                 {{Form::text('cover_img','',['placeholder'=>'','class'=>'appearance-none w-48 bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-8 px-2'])}}
@@ -38,9 +43,33 @@
 
 </section>
     </div>
-    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
-        CKEDITOR.replace('content');
+        var colors = [
+            "#2188ff", "#4498dc","#c70000",
+            "#000791", "#0046a5", "#a70063",
+            "#4a0042", "#fff", "#df0000",
+            "#dc60c4", "#001937",
+            "#000", "#009ead", "#005764",
+        ];
+        var bgColors = [
+            "#ffe080","#ffa8cf","#c70000","#a4b2ff","#ce97fb",
+            "#67ebfa", "#faa99d"
+        ];
+        var quill = new Quill('#editor-container', {
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, false] }],
+                    ['bold', 'italic', 'underline',{'color':colors}, {'background':bgColors}],
+                    ['image', 'video']
+                ]
+            },
+            placeholder: '',
+            theme: 'snow'  // or 'bubble'
+        });
+        quill.on('text-change', function(delta, oldDelta, source) {
+            document.getElementById("textarea").value = quill.root.innerHTML;
+        });
     </script>
 </x-app-layout>
 

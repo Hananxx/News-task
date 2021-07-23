@@ -1,12 +1,12 @@
 <x-app-layout>
-    <div class="flex">
+    <div class="flex pt-12">
         <section>
             @include('components.Dashboard-nav')
         </section>
-        <section class="p-8 rounded-xl shadow-xl m-auto h-screen">
+        <section class="p-9 h-screen w-full">
             <h1 class="text-3xl font-bold mb-4">Choose an Article</h1>
             <hr class="mb-4"/>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-9">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 @foreach($articles as $article)
                     <div class="shadow-xl rounded-md p-2 ">
                         <div class="flex flex-col justify-between items-center mb-4">
