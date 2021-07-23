@@ -69,4 +69,8 @@
             </div>
         </div>
     </section>
+    <script>
+        var a = {!! $articles !!}
+        console.log(a);
+    </script>
 </x-app-layout>

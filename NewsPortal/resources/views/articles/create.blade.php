@@ -17,7 +17,7 @@
 
             <div>
                 {{Form::label('content', 'Content:')}}
-                {{Form::textarea('content','',['placeholder'=>''])}}
+                {{Form::textarea('content','',['placeholder'=>'', 'id'=>'editor'])}}
             </div>
         </div>
         <div>
