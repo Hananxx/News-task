@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use \App\Models\Article;
 use \App\Models\Category;
@@ -29,7 +30,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('categories/{id}',function (Category $category){
+    return Article::where('category_id',$category->id)->get();
+});
 require __DIR__.'/auth.php';
 
 Route::resource('articles', ArticlesController::class);
 Route::post('articles/store', [ArticlesController::class,'store']);
+
+Route::get('contact/create', function(){
+    return view('contact.create');
+});
+Route::post('contact/store', [ContactController::class,'store']);
+Route::get('contact/', function(){
+    return \App\Models\Message::all();
+})->middleware(['auth']);

@@ -7,7 +7,7 @@
         </svg>
         <ul class="flex justify-between items-center">
             <li class="mr-4"><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/contact/create">Contact</a></li>
         </ul>
     </div>
     <div>

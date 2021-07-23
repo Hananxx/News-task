@@ -57,13 +57,14 @@
             </article>
     @endforeach
 </section>
-
     <section class="mt-12">
         <div class="text-left bg-black p-8">
             <div class="w-1/2 m-auto">
                 <h3 class="mb-4 text-3xl text-white font-bold">Categories</h3>
                 @foreach($categories as $category)
-                    <span class="hover:bg-gray-300 transition duration-300 ease-linear m-1 ml-5 my-2 bg-white p-1 px-4 rounded-full inline-block">{{$category->name}}</span>
+                    <span class="hover:bg-gray-300 transition duration-300 ease-linear m-1 ml-5 my-2 bg-white p-1 px-4 rounded-full inline-block">
+                       <a href="categories/{{$category->id}}">{{$category->name}}</a>
+                    </span>
                 @endforeach
             </div>
         </div>
