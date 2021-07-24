@@ -28,6 +28,9 @@ Route::get('/dashboard/articles', function (){
     return view('dashboard-articles')->with('articles', Article::all());
 })->middleware(['auth']);
 
+Route::get('/dashboard/inbox', [DashboardController::class, 'inbox'])
+    ->middleware(['auth'])->name('dashboard');
+
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth'])->name('dashboard');
 

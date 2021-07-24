@@ -75,7 +75,10 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        return view('articles.show')->with('article', Article::find($id));
+        $article = Article::find($id);
+        return view('articles.show')->with('article', $article)
+            ->with('relatedArticles', Article::where('category_id',$article->category->id)->paginate(3))
+            ->with('categories', Category::all());
     }
 
     /**

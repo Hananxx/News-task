@@ -1,33 +1,35 @@
-<div class="rounded-xl shadow-xl h-screen ml-2 w-32 flex flex-col ">
-    <div class="my-4 text-center">
-        <h3 class="font-bold text-lg flex items-center justify-center border-b border-gray-200 py-2 mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+<div class="h-screen w-40 border pt-14 fixed z-10 bg-white">
+<div class="h-1/2 flex flex-col justify-around mt-4 text-gray-500">
+        <h3 class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
                 <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
             </svg>
-            Statistics
+            <a class="hover:text-black transition duration-200 ease-linear" href="/dashboard">Dashboard</a>
         </h3>
-        <h3 class="text-left text-lg ml-7 "><a class="hover:text-blue-600 transition duration-200 ease-linear" href="/dashboard">View</a></h3>
-    </div>
-    <div class="my-4 text-center">
-        <h3 class="font-bold text-lg flex items-center justify-center border-b border-gray-200 py-2 mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <h3 class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
             </svg>
-            NewsHub
+            <a class="hover:text-black transition duration-200 ease-linear" href="/">Home</a>
         </h3>
-        <h3 class="text-left text-lg ml-7 "><a class="hover:text-blue-600 transition duration-200 ease-linear" href="/">Home</a></h3>
-        <h3 class="text-left text-lg ml-7 "><a class="hover:text-blue-600 transition duration-200 ease-linear" href="/articles">Articles</a></h3>
-    </div>
-    <div class="my-4 text-center">
-        <h3 class="font-bold text-lg flex items-center justify-center border-b border-gray-200 py-2 mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        <h3 class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
+                <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd" />
             </svg>
-            Articles
+            <a class="hover:text-black transition duration-200 ease-linear" href="/articles/create">Create an article</a>
         </h3>
-        <h3 class="text-left text-lg ml-7 "><a class="hover:text-blue-600 transition duration-200 ease-linear" href="/articles/create">Create</a></h3>
-        <h3 class="text-left ml-7 text-lg"><a class="hover:text-blue-600 transition duration-200 ease-linear" href="/dashboard/articles">Edit</a></h3>
+        <h3 class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+            </svg>
+            <a class="hover:text-black transition duration-200 ease-linear" href="/dashboard/articles">Edit an Article</a>
+        </h3>
+    <h3 class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
+            <path fill-rule="evenodd" d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z" clip-rule="evenodd" />
+        </svg>
+        <a class="hover:text-black transition duration-200 ease-linear" href="/dashboard/inbox">Inbox</a>
+    </h3>
+
     </div>
-
 </div>
-

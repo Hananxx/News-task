@@ -8,9 +8,17 @@ module.exports = {
     ],
 
     theme: {
+        colors: {
+            yellow: {
+                primary: '#F1B82D'
+            }
+        },
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Lato', ...defaultTheme.fontFamily.sans],
+            },
+            width: {
+                '19/20': '95.11%',
             },
         },
     },
