@@ -21,7 +21,7 @@ class ArticlesController extends Controller
     }
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::orderBy('created_at', 'DESC')->get();
         if(request('search')){
             $articles = Article::where('title', 'LIKE', '%'.\request('search').'%')
                 ->orWhere('content', 'like','%'.request('search').'%') ->get();

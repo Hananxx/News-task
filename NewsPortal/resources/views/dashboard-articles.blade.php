@@ -3,7 +3,7 @@
         <section>
             @include('components.Dashboard-nav')
         </section>
-        <section class="m-auto ml-48 w-3/4 mt-16 shadow-2xl p-4 rounded-2xl mb-4">
+        <section class="m-auto ml-48 w-3/4 mt-16 shadow-2xl p-4 rounded-2xl mb-4 bg-white">
             <h1 class="text-3xl font-bold mb-4">Choose an Article</h1>
             <hr class="mb-4"/>
             <div class="grid lg:grid-cols-2 gap-3">

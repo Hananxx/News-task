@@ -17,7 +17,7 @@
 
         {{--        <!-- Scripts -->--}}
     </head>
-    <body class="font-sans">
+    <body class="font-sans h-screen flex flex-col">
 
     @include('components.nav-bar')
     <div class="bg-gradient-to-b from-gray-100 h-screen w-screen fixed " style="z-index: -1;"></div>
@@ -27,6 +27,7 @@
             <main>
                 {{ $slot }}
             </main>
+    @include('components.footer')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

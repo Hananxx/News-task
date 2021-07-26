@@ -1,15 +1,15 @@
 <x-app-layout>
-    <section class="pt-14 grid grid-cols-6 m-auto px-1 lg:px-3 gap-2 lg:gap-3">
-        <div class="bg-white mt-12 rounded-lg">
+    <section class="pt-14 grid grid-cols-6 m-auto px-1 lg:px-3 gap-2 lg:gap-3 mb-8">
+        <div class="bg-white shadow-xl mt-12 rounded-lg">
             <h3 class="font-bold text-xl mb-2 p-3">Category</h3>
             <div class="flex flex-col leading-9 h-full px-3 text-gray-600">
                 @foreach($categories as $category)
                     @if($category->name == $article->category->name)
-                        <a class="font-medium text-blue-800">
+                        <a class="font-medium text-blue-800" href="/categories/{{$category->id}}">
                             {{$category->name}}
                         </a>
                         @else
-                    <a class="hover:text-blue-600 transition duration-200 ease-in-out" href="#">
+                    <a class="hover:text-blue-600 transition duration-200 ease-in-out"href="/categories/{{$category->id}}">
                         {{$category->name}}
                     </a>
                     @endif
@@ -18,11 +18,11 @@
         </div>
         <div class="col-span-3 ">
            <h1 class="text-2xl font-bold">{{$article->category->name}}</h1>
-            <div class="mt-4 bg-white p-2 rounded-lg">
-                <div style="background-image: url({{$article->cover_img}})" class="h-64 bg-no-repeat bg-center bg-cover rounded-xl"></div>
+            <div class="mt-4 bg-white shadow-xl p-2 rounded-lg">
+                <div style="background-image: url({{$article->cover_img}})" class="md:h-80 h-64  bg-no-repeat bg-center bg-cover rounded-xl"></div>
                 <div class="px-3">
-                    <div class="text-xs font-bold flex justify-between px-2 mt-3">
-                        <span class="p-1 px-3 bg-indigo-100 rounded-full text-indigo-600 uppercase">{{$article->category->name}}</span>
+                    <div class="text-xs font-bold flex flex-col sm:flex-row justify-between px-2 mt-3">
+                        <span class="text-center p-1 px-3 bg-indigo-100 rounded-full text-indigo-600 uppercase">{{$article->category->name}}</span>
                         <div class="text-gray-700 flex items-center ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -37,17 +37,17 @@
                     </div>
                     <div class="flex justify-between">
                         <div class="">
-                            <h1 class="text-2xl font-bold my-2 pr-2">{{$article->title}}</h1>
+                            <h1 class="text-md md:text-2xl font-bold my-2 pr-2">{{$article->title}}</h1>
                             <h4 class="text-gray-600 text-sm">by <span class="font-bold uppercase">{{$article->author_name}}</span></h4>
                             <h4 class="text-xs text-gray-500">{{ \Illuminate\Support\Str::limit($article->created_at, 10, $end='') }}</h4>
 
                         </div>
-                        <div class="mt-4 w-full ">
+                        <div class="mt-4 whitespace-nowrap ">
                             <div class="px-2 p-1 text-xs font-bold border border-gray-500 rounded-full text-gray-500 flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                                 </svg>
-                                <span class=" ">Share on media</span>
+                                <span class="hidden sm:block ">Share on media</span>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                 @endif
                @foreach($relatedArticles as $related)
                    @if($article->id != $related->id)
-                   <div class="mt-4 rounded-lg p-2 overflow-hidden bg-white">
+                   <div class="mt-4 rounded-lg p-2 overflow-hidden bg-white shadow-xl">
                        <div class="h-28 mb-2 rounded-xl bg-center bg-cover bg-no-repeat" style="background-image: url({{$related->cover_img}})"></div>
                        <div class="text-xs font-bold flex justify-between px-2">
                            <span class="p-0.5 px-2 bg-indigo-100 rounded-full text-indigo-600 uppercase">{{$related->category->name}}</span>

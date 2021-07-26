@@ -51,7 +51,7 @@
         var barChartData = {
             labels: days,
             datasets: [{
-                label: 'articlesCount',
+                label: 'Number of articles',
                 backgroundColor: "black",
                 fill: false,
                 data: NumberOfarticles

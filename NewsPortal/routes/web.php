@@ -34,8 +34,10 @@ Route::get('/dashboard/inbox', [DashboardController::class, 'inbox'])
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth'])->name('dashboard');
 
-Route::get('categories/{id}',function (Category $category){
-    return Article::where('category_id',$category->id)->get();
+Route::get('categories/{category}',function (Category $category){
+    return view('articles.index')
+        ->with('articles',$category->articles)
+        ->with('categories', Category::all());
 });
 require __DIR__.'/auth.php';
 
