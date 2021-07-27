@@ -1,5 +1,20 @@
 # NewsHub
-### A newsletter website for everyone
+## Description:
+Newsletter website.
+## Demo: 
+## Technologies Used:
+- PHP
+- Laravel
+- Blade/HTML
+- CSS
+- Javascript
+- MySQL
+- [Chartjs](https://www.chartjs.org/)
+- Tailwind
+- [Lottie](https://lottiefiles.com/) animations
+- [Locomotive](https://github.com/locomotivemtl/locomotive-scroll) smooth scroll
+- [Quilljs](https://quilljs.com/) Text editor
+
 ## Requirements:
 - Admin login page.
 - Admin shall Add news.
@@ -14,6 +29,12 @@ feature)
 - public news landing page shall have about us and contact us pages
 ## Additional Requirements:
 - Users can add a comment to any news but the comment will only be shown if the admin approves it.
+- Admin shall show/hide a comment.
 - Admin shall delete a comment.
+- Admin shall have a chart for total hidden and shown comments in the
+main dashboard
+- Admin shall have number of visitors for each news.
 - Category filters.
-## Demo:
+
+## Author:
+### Hanan (@hananxx)
