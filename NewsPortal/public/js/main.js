@@ -1,8 +1,18 @@
 const scroll = new LocomotiveScroll({
     el: document.querySelector('#body'),
     smooth: true,
-    multiplier: .6
+    multiplier: .9
 });
+//charts
+function drawChart(type,data,options, canvasID){
+    var ctx = document.getElementById(canvasID).getContext("2d");
+    window.myPie = new Chart(ctx, {
+        type: type,
+        data: data,
+        options: options,
+    });
+}
+
 //editor
 var colors = [
     "#2188ff", "#4498dc","#c70000",

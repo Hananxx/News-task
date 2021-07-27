@@ -8,6 +8,7 @@ use App\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ArticlesController extends Controller
 {
@@ -77,6 +78,14 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
+
+        $viewed = Session::get('viewed_pages', []);
+        if(!in_array($article->id, $viewed)){
+            $article->views = $article->views+1;
+            $article->save();
+            Session::push('viewed_pages', $article->id);
+        }
+
         return view('articles.show')->with('article', $article)
             ->with('relatedArticles', Article::where('category_id',$article->category->id)->paginate(3))
             ->with('categories', Category::all())

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="flex h-screen">
+    <div class="flex">
         <section>
             @include('components.Dashboard-nav')
         </section>
@@ -17,7 +17,6 @@
                             <p class="text-xl">{{$comment->content}}</p>
                         </div>
                         <div class="flex">
-
                             {!! Form::open(['action'=>['App\Http\Controllers\CommentsController@update', $comment->id], 'method'=>'POST']) !!}
                             {{Form::hidden('_method', 'PUT')}}
                               <label>

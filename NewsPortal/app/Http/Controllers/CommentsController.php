@@ -38,6 +38,14 @@ class CommentsController extends Controller
         $comment->save();
         return redirect('/dashboard/comments')->with('success','Comment Approved');
     }
+    //toggle visibility
+    public function toggleVisibility(Request $request, $id)
+    {
+        $comment = Comment::find($id);
+        $comment->isHidden = !$comment->isHidden;
+        $comment->save();
+        return redirect()->back()->with('success','Comment visibility changed');
+    }
     //destroy
     public function destroy($id)
     {

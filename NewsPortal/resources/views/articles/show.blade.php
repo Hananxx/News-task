@@ -1,5 +1,5 @@
 <x-app-layout>
-    <section class="pt-14 grid grid-cols-6 m-auto px-1 lg:px-3 gap-2 lg:gap-3 mb-8">
+    <section class="w-11/12 pt-14 grid grid-cols-6 m-auto px-1 lg:px-3 gap-2 lg:gap-3 mb-8">
         <div class="bg-white shadow-xl mt-12 rounded-lg">
             <h3 class="font-bold text-xl mb-2 p-3">Category</h3>
             <div class="flex flex-col leading-9 h-full px-3 text-gray-600">
@@ -32,7 +32,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
-                            <span>25.7k</span>
+                            <span>{{$article->views}}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                             </svg>
@@ -77,7 +77,26 @@
                     {{Form::submit('Add comment', ['class'=>'appearance-none w-40 bg-blue-400 text-grey-darker rounded-lg  hover:bg-blue-500 hover:shadow-lg transition duration-200 ease-in'])}}
                     {!! Form::close() !!}
                 </div>
+
                 @foreach($comments as $comment)
+                    @if($comment->isHidden)
+                   @auth
+                            <div class="bg-gray-100 filter brightness-75 rounded-lg w-full p-1 px-2 my-2 lg:px-7">
+                                <div class="flex justify-between items-center">
+                                    <h1 class="font-medium mb-2 flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        {{$comment->sender_name}}
+                                    </h1>
+                                  @include('components.comments-settings')
+                                </div>
+                                <p class="text-sm font-light text-gray-800 lg:w-4/5 lg:text-base">
+                                    {{$comment->content}}
+                                </p>
+                            </div>
+                        @endauth
+            @else
                 <div class="bg-gray-100 rounded-lg w-full p-1 px-2 my-2 lg:px-7">
                     <div class="flex justify-between items-center">
                         <h1 class="font-medium mb-2 flex items-center">
@@ -86,23 +105,13 @@
                             </svg>
                             {{$comment->sender_name}}
                         </h1>
-                        @auth
-                        {!! Form::open(['action' => ['App\Http\Controllers\CommentsController@destroy', $comment->id], 'method'=>'POST']) !!}
-                        {{ Form::hidden('_method','DELETE') }}
-                        <label>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 bg-red-100 rounded-full p-1 hover:shadow-lg hover:text-red-600 transition duration-300 ease-in-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                            {{Form::submit('',['class'=>'appearance-none bg-red-400 text-grey-darker rounded-full hover:bg-red-500 hover:shadow-lg transition duration-200 ease-in'])}}
-                        </label>
-                        {!! Form::close() !!}
-                        @endauth
+                       @include('components.comments-settings')
                     </div>
-
                     <p class="text-sm font-light text-gray-800 lg:w-4/5 lg:text-base">
                         {{$comment->content}}
                     </p>
                 </div>
+                    @endif
                 @endforeach
             </div>
         </div>
@@ -125,10 +134,12 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                 </svg>
-                                <span>1.2k</span>
+                                <span>{{$related->views}}</span>
                             </div>
                        </div>
-                       <h1 class="text-xl font-medium px-2 mt-1">{{$related->title}}</h1>
+                       <a class="block" href="/articles/{{$related->id}}">
+                           <h1 class="text-xl font-medium px-2 mt-1">{{$related->title}}</h1>
+                       </a>
                    </div>
                     @endif
                 @endforeach

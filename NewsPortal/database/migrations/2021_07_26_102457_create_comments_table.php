@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->string('sender_name');
             $table->mediumText('content');
             $table->boolean('isApproved')->default(false);
+            $table->boolean('isHidden')->default(false);
             $table->foreignId('article_id');
             $table->timestamps();
         });

@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
             $table->foreignId('category_id');
             $table->foreignId('user_id');
             $table->text('content');
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
     }

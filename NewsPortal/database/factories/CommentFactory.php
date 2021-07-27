@@ -26,7 +26,8 @@ class CommentFactory extends Factory
             'sender_name' => $this->faker->name(),
             'content' => $this->faker->sentence(),
             'article_id' => Article::all()->random()->id,
-            'isApproved' => $this->faker->boolean(40)
+            'isApproved' => $this->faker->boolean(40),
+            'isHidden' => $this->faker->boolean(10)
         ];
     }
 }

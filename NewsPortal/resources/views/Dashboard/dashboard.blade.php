@@ -16,14 +16,18 @@
                 </div>
                 <div class="rounded-2xl shadow-lg col-span-2 p-2">
                     <h1 class="mb-4 text-lg font-medium">Articles per Category</h1>
-                    <canvas id="canvas" height="210" width="600"></canvas>
+                    <canvas id="canvas" height="220" width="600"></canvas>
                 </div>
-                <div class="rounded-2xl shadow-lg col-span-3 p-2">
+                <div class="rounded-2xl shadow-lg col-span-2 p-2 mt-4">
                     <div class="flex justify-between items-center p-2">
                         <h1 class="text-lg font-medium">Number of Articles</h1>
                         <h5 class="text-xs font-normal text-gray-500">Past 7 days</h5>
                     </div>
-                    <canvas id="barChart" height="150" width="500"></canvas>
+                    <canvas id="barChart" height="150" width="400"></canvas>
+                </div>
+                <div class="rounded-2xl shadow-lg p-2 mt-4 flex flex-col justify-between">
+                        <h1 class=" font-medium">Hidden or Shown Comments</h1>
+                    <canvas id="commentsChart" height="150" width="200"></canvas>
                 </div>
             </div>
         </section>
@@ -44,12 +48,21 @@
                 data: articles
             }]
         };
+        var commentsChart = {
+            labels: ['hidden', 'shown'],
+            datasets: [{
+                backgroundColor: [
+
+                    "#000", "#002D7F"
+                ],
+                data: {{$commentChartData}}
+            }]
+        };
 
         var NumberOfarticles = {{ $NumberOfarticles }};
-        var days = {{ $days }};
 
         var barChartData = {
-            labels: days,
+            labels: ['23','24','25','26','27', '28'],
             datasets: [{
                 label: 'Number of articles',
                 backgroundColor: "black",
@@ -59,27 +72,16 @@
         };
 
         window.onload = function() {
-            var barCanvas = document.getElementById("barChart").getContext("2d");
-            window.myBar = new Chart(barCanvas, {
-                type: 'line',
-                data: barChartData,
-            });
-            var ctx = document.getElementById("canvas").getContext("2d");
-            window.myPie = new Chart(ctx, {
-                type: 'pie',
-                data: pieChartData,
-                options: {
-                    legend: {
-                        position: 'right',
-                        labels:{
-                            boxWidth: 1,
-                            padding: 20
-                        }
-                    }
-                }
-            });
+            drawChart('line',barChartData,{},'barChart');
+            drawChart('pie',pieChartData,{//categories
+                legend: {
+                    position: 'right',
+                    labels:{
+                        boxWidth: 2,
+                        padding: 20
+                    }}},'canvas');
+            drawChart('doughnut',commentsChart,{//shown vs hidden
+                legend: {display: false}},'commentsChart');
         };
-
-
     </script>
 </x-app-layout>

@@ -57,6 +57,7 @@ Route::get('about/', function(){
 });
 
 Route::post('comments/store/{id}', [CommentsController::class, 'store']);
+Route::put('comments/toggleVisibility/{id}', [CommentsController::class, 'toggleVisibility']);
 Route::get('dashboard/comments', [CommentsController::class, 'index'])->middleware(['auth']);
 
 Route::delete('comments/{comment}', [CommentsController::class, 'destroy'])->middleware(['auth']);
