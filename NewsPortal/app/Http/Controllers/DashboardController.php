@@ -21,7 +21,7 @@ class DashboardController extends Controller
             $articles[] = Article::where('category_id',$value)->count();
         }
         //articles last week
-        $days = ['22','23','24','25','26','27'];
+        $days = ['23','24','25','26','27', '28'];
 
         $NumberOfarticles = [];
         foreach ($days as $key => $value) {

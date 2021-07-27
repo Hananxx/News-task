@@ -1,6 +1,6 @@
 <x-app-layout>
-    <section class="pt-14 grid grid-cols-6 m-auto px-1 lg:px-3 gap-2 lg:gap-3 mb-5">
-        <div class="hidden md:block bg-white mt-12 rounded-lg h-11/12 shadow-xl">
+    <section class="w-11/12 pt-14 grid lg:grid-cols-6 m-auto px-1 lg:px-3 gap-2 lg:gap-3 mb-5">
+        <div class="hidden lg:block bg-white mt-12 rounded-lg h-11/12 shadow-xl">
             <h3 class="font-bold text-xl mb-2 p-3">Category</h3>
             <div class="flex flex-col leading-9 h-full px-3 text-gray-600">
                 @foreach($categories as $category)
@@ -11,8 +11,7 @@
             </div>
         </div>
         <div class="col-span-4 md:col-span-3">
-
-            <h1 class="text-2xl font-bold">Latest <span class="font-light">Headlines</span></h1>
+            <h1 class="text-2xl font-bold">Latest <span class="font-light">Headline</span></h1>
             <div class="mt-4 bg-white p-2 rounded-lg shadow-xl">
                 <div style="background-image: url({{$articles[0]->cover_img}})" class="h-64 bg-no-repeat bg-center bg-cover rounded-xl"></div>
                 <div class="px-3">
@@ -80,7 +79,7 @@
             </div>
         </div>
 @if($articles->count()>3)
-        <div class="col-span-2">
+        <div class="col-span-4 md:col-span-2">
             <div class="flex justify-between items-center">
                 <h1 class="text-lg font-bold">Trending <span class="font-light">Headlines</span></h1>
                 <h4 class="text-sm italic font-light text-gray-500 pr-2 "><a class="hover:text-black transition duration-300 ease-in-out" href="/articles">see all</a></h4>

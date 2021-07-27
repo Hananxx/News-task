@@ -50,7 +50,7 @@ Route::get('contact/create', function(){
 });
 Route::post('contact/store', [ContactController::class,'store']);
 Route::get('contact/', function(){
-    return Message::all();
+    return Message::latest();
 });
 Route::get('about/', function(){
     return view('about');

@@ -3,7 +3,7 @@
     <section class="text-5xl py-20 text-center font-bold">
         <h1>Latest News</h1>
     </section>
-    <section class="m-auto w-4/5 grid lg:grid-cols-3 md:grid-cols-2 gap-3 ">
+    <section class="m-auto w-11/12 grid lg:grid-cols-3 md:grid-cols-2 gap-3 ">
         @for ($i = 0; $i < 4; $i++)
             @if($i == 0 OR $i == 2)
             <article class="bg-white rounded-lg p-2 shadow-xl overflow-hidden row-span-2">
@@ -29,7 +29,7 @@
     <section class="py-16 text-center font-bold m-auto">
         <h1 class="text-5xl">All News</h1>
     </section>
-    <section class=" py-4 text-center font-bold">
+    <section class="py-4 text-center font-bold">
         <h1 class="text-2xl">Search</h1>
         <form method="GET" action="#">
             <input class="my-8 inline appearance-none block w-56 bg-grey-lighter text-grey-darker border border-grey-lighter rounded-full h-8 px-4 m-auto"
@@ -60,8 +60,8 @@
 </section>
     <section class="mt-12">
         <div class="text-left bg-black p-8">
-            <div class="w-2/3 m-auto">
-                <h3 class="mb-4 text-3xl text-white font-bold">Categories</h3>
+            <div class="w-2/3 m-auto text-center">
+                <h3 class="text-left mb-4 text-3xl text-white font-bold">Categories</h3>
                 @foreach($categories as $category)
                     <span class="hover:bg-gray-300 font-medium transition duration-300 ease-linear m-1 ml-5 my-2 bg-white p-0.5 px-4 rounded-full inline-block">
                        <a href="/categories/{{$category->id}}">{{$category->name}}</a>

@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,41 +21,26 @@ class DatabaseSeeder extends Seeder
     {
          User::create([
              'name'=>'hanan',
-             'password'=>'hi123123',
+             'password'=>Hash::make('hi123123'),
              'email'=>'hi@example.com'
          ]);
-        Category::create([
-            'name'=>'World',
-        ]);
-        Category::create([
-        'name'=>'Health',
-        ]);
-        Category::create([
-        'name'=>'Politics',
-        ]);
-        Category::create([
-            'name'=>'Business',
-        ]);
-        Category::create([
-            'name'=>'Entertainment',
-        ]);
-        Category::create([
-            'name'=>'Tech',
-        ]);
-        Category::create([
-            'name'=>'Style',
-        ]);
-        Category::create([
-            'name'=>'Travel',
-        ]);
-        Category::create([
-            'name'=>'Sports',
-        ]);
-        Category::create([
-            'name'=>'Weather',
-        ]);
-        Category::create([
-            'name'=>'Others',
-        ]);
+        $categories = [
+            ['name'=>'World'],
+            ['name'=>'Health'],
+            ['name'=>'Politics'],
+            ['name'=>'Business'],
+            ['name'=>'Entertainment'],
+            ['name'=>'Tech'],
+            ['name'=>'Style'],
+            ['name'=>'Travel'],
+            ['name'=>'Sports'],
+            ['name'=>'Weather'],
+            ['name'=>'Others']
+        ];
+        Category::insert($categories);
+        Article::factory(30)->create();
+        Comment::factory(15)->create();
+        Message::factory(5)->create();
+
     }
 }
