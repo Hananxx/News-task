@@ -53,7 +53,7 @@
             <div class="grid md:grid-cols-2 gap-2 mt-2">
                 @foreach($articles as $article)
                     @if($article->id != $articles[0]->id AND $article->id != $articles[1]->id AND $article->id != $articles[2]->id)
-                        <div class="bg-white overflow-hidden rounded-lg shadow-xl mt-2">
+                        <div class="p-2 bg-white overflow-hidden rounded-lg shadow-xl mt-2">
                             <div class="h-32 rounded-lg bg-center bg-no-repeat bg-cover" style="background-image: url({{$article->cover_img}})"></div>
                             <div class="p-1 mt-1">
                                 <span class="p-0.5 px-2 bg-yellow-100 rounded-full text-yellow-600 uppercase text-xs font-medium">{{$article->category->name}}</span>

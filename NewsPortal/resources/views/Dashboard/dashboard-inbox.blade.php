@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="flex">
+    <div class="flex h-screen">
         <section>
             @include('components.Dashboard-nav')
         </section>

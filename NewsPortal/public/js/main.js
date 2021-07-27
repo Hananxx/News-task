@@ -1,4 +1,8 @@
-console.log('hi')
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('#body'),
+    smooth: true,
+    multiplier: .6
+});
 //editor
 var colors = [
     "#2188ff", "#4498dc","#c70000",

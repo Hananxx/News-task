@@ -3,7 +3,7 @@
     <section class="text-5xl py-20 text-center font-bold">
         <h1>Latest News</h1>
     </section>
-    <section class="m-auto w-11/12 grid lg:grid-cols-3 md:grid-cols-2 gap-3 ">
+    <section class="all-news m-auto w-11/12 grid lg:grid-cols-3 md:grid-cols-2 gap-3 ">
         @for ($i = 0; $i < 4; $i++)
             @if($i == 0 OR $i == 2)
             <article class="bg-white rounded-lg p-2 shadow-xl overflow-hidden row-span-2">
@@ -40,9 +40,9 @@
         </form>
     </section>
     </section>
-<section class="m-auto w-11/12 grid lg:grid-cols-3 md:grid-cols-2 gap-3">
+<section class=" m-auto w-11/12 grid lg:grid-cols-3 md:grid-cols-2 gap-3">
     @foreach($articles as $article)
-            <article class="shadow-xl rounded-lg bg-white p-2 overflow-hidden">
+            <article class=" shadow-xl rounded-lg bg-white p-2 overflow-hidden">
                 <div class="mb-1 h-56 w-full rounded-xl bg-center bg-cover bg-no-repeat" style="background-image: url({{$article->cover_img}})">
                 </div>
                 <span class="ml-2 p-0.5 px-2 bg-yellow-100 rounded-full text-yellow-600 uppercase text-xs font-medium">{{$article->category->name}}</span>
