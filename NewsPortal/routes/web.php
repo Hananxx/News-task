@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ContactController;
 use App\Models\Message;
 use Illuminate\Database\Eloquent\Model;
@@ -25,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard/articles', function (){
-    return view('dashboard-articles')->with('articles', Article::all());
+    return view('Dashboard.dashboard-articles')->with('articles', Article::all());
 })->middleware(['auth']);
 
 Route::get('/dashboard/inbox', [DashboardController::class, 'inbox'])
@@ -54,3 +55,9 @@ Route::get('contact/', function(){
 Route::get('about/', function(){
     return view('about');
 });
+
+Route::post('comments/store/{id}', [CommentsController::class, 'store']);
+Route::get('dashboard/comments', [CommentsController::class, 'index'])->middleware(['auth']);
+
+Route::delete('comments/{comment}', [CommentsController::class, 'destroy'])->middleware(['auth']);
+Route::put('comments/{comment}', [CommentsController::class, 'update'])->middleware(['auth']);

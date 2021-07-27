@@ -19,15 +19,19 @@
                     <div class="text-xs font-bold flex justify-between px-2 mt-3">
                         <span class="p-1 px-3 bg-indigo-100 rounded-full text-indigo-600 uppercase">{{$articles[0]->category->name}}</span>
                         <div class="hidden md:flex text-gray-700  items-center ">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                            <span class="">{{$articles[0]->comments->count()}}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                             <span>25.7k</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                             </svg>
-                            <span>25.7k</span>
+                            <span>4.6k</span>
                         </div>
                     </div>
                     <div class="flex justify-between">
@@ -52,11 +56,11 @@
                     @if($article->id != $articles[0]->id AND $article->id != $articles[1]->id AND $article->id != $articles[2]->id)
                         <div class="bg-white overflow-hidden rounded-lg shadow-xl mt-2">
                             <div class="h-32 rounded-lg bg-center bg-no-repeat bg-cover" style="background-image: url({{$article->cover_img}})"></div>
-                            <div class="p-1 px-2 mt-1">
+                            <div class="p-1 mt-1">
                                 <span class="p-0.5 px-2 bg-yellow-100 rounded-full text-yellow-600 uppercase text-xs font-medium">{{$article->category->name}}</span>
                                 <div class="flex justify-between">
                                     <div>
-                                        <h5 class="text-lg font-medium capitalize mt-2">{{$article->title}}</h5>
+                                        <h5 class="text-base font-medium capitalize mt-2">{{$article->title}}</h5>
                                         <h4 class="uppercase text-gray-600 text-xs my-1">{{$article->category->name}} | {{$article->author_name}}</h4>
                                     </div>
                                     <div class="self-end ">

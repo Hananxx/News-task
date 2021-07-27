@@ -27,7 +27,7 @@ class DashboardController extends Controller
         foreach ($days as $key => $value) {
             $NumberOfarticles[] = Article::where(\DB::raw("DATE_FORMAT(created_at, '%d')"),$value)->count();
         }
-        return view('dashboard')
+        return view('Dashboard.dashboard')
             ->with('categoryID',json_encode($categoryID,JSON_NUMERIC_CHECK))
             ->with('articles',json_encode($articles,JSON_NUMERIC_CHECK))
             ->with('NumberOfarticles',json_encode($NumberOfarticles,JSON_NUMERIC_CHECK))
@@ -37,7 +37,10 @@ class DashboardController extends Controller
     }
     public function inbox()
     {
-        return view('dashboard-inbox')->with('messages', Message::all());
+        return view('Dashboard.dashboard-inbox')->with('messages', Message::all());
     }
-
+    public function comments()
+    {
+        return view('Dashboard.dashboard-comments')->with('articles', Article::all());
+    }
 }

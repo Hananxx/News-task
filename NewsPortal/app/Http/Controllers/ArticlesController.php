@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -78,7 +79,8 @@ class ArticlesController extends Controller
         $article = Article::find($id);
         return view('articles.show')->with('article', $article)
             ->with('relatedArticles', Article::where('category_id',$article->category->id)->paginate(3))
-            ->with('categories', Category::all());
+            ->with('categories', Category::all())
+            ->with('comments', $article->comments->where('isApproved', true));
     }
 
     /**
@@ -130,6 +132,6 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         Article::find($id)->delete();
-        return redirect('/')->with('success','Article removed');
+        return redirect('/dashboard')->with('success','Article removed');
     }
 }
