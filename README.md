@@ -1,7 +1,8 @@
 # NewsHub
 ## Description:
-Newsletter website.
+Website specialized in reporting news from around the world. Users can explore, search and read the latest headlines as well as commenting on them.
 ## Demo: 
+![dmeo gif](https://github.com/Hananxx/News-task/blob/main/demo-gif.gif)
 ## Technologies Used:
 - PHP
 - Laravel
