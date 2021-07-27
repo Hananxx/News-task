@@ -1,3 +1,5 @@
+<p align=center><img src="https://user-images.githubusercontent.com/58954229/127224410-cfa29f07-72fb-4718-80a7-7a2a443d9245.png"/></p>
+
 # NewsHub
 ## Description:
 Website specialized in reporting news from around the world. Users can explore, search and read the latest headlines as well as commenting on them.
