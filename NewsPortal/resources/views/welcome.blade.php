@@ -63,7 +63,7 @@
                                         <h5 class="text-base font-medium capitalize mt-2">{{$article->title}}</h5>
                                         <h4 class="uppercase text-gray-600 text-xs my-1">{{$article->category->name}} | {{$article->author_name}}</h4>
                                     </div>
-                                    <div class="self-end ">
+                                    <div class="self-end">
                                         <div class="px-2 p-1 text-xs font-bold hover:bg-gray-100 transition duration-300 ease-in-out border border-gray-400 rounded-full text-gray-500 flex items-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -92,7 +92,15 @@
                                     <div class="h-32 rounded-lg bg-center bg-no-repeat bg-cover" style="background-image: url({{$articles[1]->cover_img}})"></div>
                                     <span class="p-0.5 px-2 bg-yellow-100 rounded-full text-yellow-600 uppercase text-xs font-medium">{{$articles[1]->category->name}}</span>
                                     <h5 class="text-lg font-medium capitalize mt-2">{{$articles[1]->title}}</h5>
-                                    <h4 class="uppercase text-gray-600 text-xs my-1">{{$articles[1]->category->name}} | {{$articles[1]->author_name}}</h4>
+                                    <div class="uppercase text-gray-600 text-xs my-1 flex justify-between">
+                                        <span>{{$articles[1]->category->name}} | {{$articles[1]->author_name}}</span>
+                                        <div class="px-2 md:px-4 p-1 font-bold hover:bg-gray-100 transition duration-300 ease-in-out border border-gray-400 rounded-full text-gray-500 flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                            </svg>
+                                            <a href="articles/{{$articles[1]->id}}">Read</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                     <div class="bg-white overflow-hidden rounded-lg shadow-xl">
@@ -101,7 +109,15 @@
 
                             <span class="p-0.5 px-2 bg-yellow-100 rounded-full text-yellow-600 uppercase text-xs font-medium">{{$articles[2]->category->name}}</span>
                             <h5 class="text-lg font-medium capitalize mt-2">{{$articles[2]->title}}</h5>
-                            <h4 class="uppercase text-gray-600 text-xs my-1">{{$articles[2]->category->name}} | {{$articles[2]->author_name}}</h4>
+                            <div class="uppercase text-gray-600 text-xs my-1 flex justify-between items-center">
+                                <span>{{$articles[2]->category->name}} | {{$articles[2]->author_name}}</span>
+                                <div class="px-2 md:px-4 p-1 font-bold hover:bg-gray-100 transition duration-300 ease-in-out border border-gray-400 rounded-full text-gray-500 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                    </svg>
+                                    <a href="articles/{{$articles[2]->id}}">Read</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

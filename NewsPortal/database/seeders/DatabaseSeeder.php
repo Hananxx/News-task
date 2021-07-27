@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,29 +15,43 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-         \App\Models\User::create([
+         User::create([
              'name'=>'hanan',
              'password'=>'hi123123',
              'email'=>'hi@example.com'
          ]);
-        \App\Models\Category::create([
-            'name'=>'Tech',
+        Category::create([
+            'name'=>'World',
         ]);
-        \App\Models\Category::create([
+        Category::create([
         'name'=>'Health',
         ]);
-        \App\Models\Category::create([
+        Category::create([
         'name'=>'Politics',
         ]);
-        \App\Models\Category::create([
-            'name'=>'Arts',
+        Category::create([
+            'name'=>'Business',
         ]);
-        \App\Models\Category::create([
-            'name'=>'Fashion',
+        Category::create([
+            'name'=>'Entertainment',
         ]);
-        \App\Models\Category::create([
+        Category::create([
+            'name'=>'Tech',
+        ]);
+        Category::create([
+            'name'=>'Style',
+        ]);
+        Category::create([
+            'name'=>'Travel',
+        ]);
+        Category::create([
             'name'=>'Sports',
+        ]);
+        Category::create([
+            'name'=>'Weather',
+        ]);
+        Category::create([
+            'name'=>'Others',
         ]);
     }
 }
