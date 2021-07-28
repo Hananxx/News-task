@@ -1,3 +1,5 @@
+<p align=center><img src="https://user-images.githubusercontent.com/58954229/127224410-cfa29f07-72fb-4718-80a7-7a2a443d9245.png"/></p>
+
 # NewsHub
 ## Description:
 Website specialized in reporting news from around the world. Users can explore, search and read the latest headlines as well as commenting on them.
@@ -16,26 +18,18 @@ Website specialized in reporting news from around the world. Users can explore, 
 - [Locomotive](https://github.com/locomotivemtl/locomotive-scroll) smooth scroll
 - [Quilljs](https://quilljs.com/) Text editor
 
-## Requirements:
-- Admin login page.
-- Admin shall Add news.
- - News contain the following (title, category, author name, content (can have video and images) and date of publish)
-- Admin shall Edit news.
-- Admin shall Delete news.
-- Admin have main dashboard that have charts to display total news,
-number of news per category.
-- All news shall be displayed on the public news landing page as following
-(last 10 news in main page and all remaining in another page with search
-feature)
-- public news landing page shall have about us and contact us pages
-## Additional Requirements:
-- Users can add a comment to any news but the comment will only be shown if the admin approves it.
-- Admin shall show/hide a comment.
-- Admin shall delete a comment.
-- Admin shall have a chart for total hidden and shown comments in the
-main dashboard
-- Admin shall have number of visitors for each news.
-- Category filters.
+## Features:
+### Regular Users:
+- Users can search, read and comment on articles.
+- Users can leave feedback using the contact us page.
+- Users can filter articles based on their categories.
+### Admin:
+- Comments are displayed if Admin approves them.
+- Sites statstics displayed on main dashboard page as charts.
+- Admin can create, edit or delete articles.
+- Admin can show or hide comments.
+- Admin can delete comments.
+- Admin can read users messages.
 
 ## Author:
 ### Hanan (@hananxx)

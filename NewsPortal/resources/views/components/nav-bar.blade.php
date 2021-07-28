@@ -17,7 +17,7 @@
         </div>
         <div class="self-center">
             @if (Route::has('login'))
-                <div class="flex items-baseline ">
+                <div class="flex items-center md:items-baseline">
                     @auth
                         <a class="mr-2 hover:text-blue-600 transition duration-300 ease-in-out" href="{{ url('/dashboard') }}">Dashboard</a>
                         <form method="POST" action="{{ route('logout') }}">
@@ -25,7 +25,12 @@
                             <x-responsive-nav-link :href="route('logout')"
                                                    onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                               <span class="hidden md:block">
+                                    {{ __('Log Out') }}
+                               </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 block md:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
                             </x-responsive-nav-link>
                         </form>
                     @else

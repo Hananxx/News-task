@@ -1,6 +1,6 @@
 <x-app-layout>
     <section class="w-11/12 pt-14 grid grid-cols-6 m-auto px-1 lg:px-3 gap-2 lg:gap-3 mb-8">
-        <div class="bg-white shadow-xl mt-12 rounded-lg">
+        <div class="hidden lg:block bg-white shadow-xl mt-12 rounded-lg">
             <h3 class="font-bold text-xl mb-2 p-3">Category</h3>
             <div class="flex flex-col leading-9 h-full px-3 text-gray-600">
                 @foreach($categories as $category)
@@ -16,14 +16,14 @@
                 @endforeach
             </div>
         </div>
-        <div class="col-span-3 ">
+        <div class="lg:col-span-3 col-span-6">
            <h1 class="text-2xl font-bold">{{$article->category->name}}</h1>
             <div class="mt-4 bg-white shadow-xl p-2 rounded-lg">
                 <div style="background-image: url({{$article->cover_img}})" class="md:h-80 h-64  bg-no-repeat bg-center bg-cover rounded-xl"></div>
                 <div class="px-3">
-                    <div class="text-xs font-bold flex flex-col sm:flex-row justify-between px-2 mt-3">
+                    <div class="text-xs font-bold flex  sm:flex-row justify-between px-2 mt-3">
                         <span class="text-center p-1 px-3 bg-indigo-100 rounded-full text-indigo-600 uppercase">{{$article->category->name}}</span>
-                        <div class="text-gray-700 flex items-center ">
+                        <div class="text-gray-700 flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                             </svg>
@@ -116,7 +116,7 @@
             </div>
         </div>
 
-        <div class="col-span-2">
+        <div class="hidden lg:block lg:col-span-2">
             <h1 class="text-2xl"><span class="font-bold">Related</span> News</h1>
             <div class="">
 
